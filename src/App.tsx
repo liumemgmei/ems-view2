@@ -40,7 +40,7 @@ function App() {
     if(theme){
       themejs = theme;
     }
-    import('./public/theme/'+themejs).then(res=>{
+    import('./public/style/theme/'+themejs).then(res=>{
       setShow(true);
     });
   },[theme]);
