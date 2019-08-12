@@ -2,6 +2,7 @@ import React from 'react';
 import login from './login';
 import home from './home';
 import {Router, Route, Redirect, NuomiRoute} from 'nuomi';
+import './public/js/config';
 class App extends React.Component {
   render() {
     return(

@@ -3,12 +3,13 @@ import Layout from './components/Layout';
 import effects from './effects';
 import services from './services';
 export default {
+  id: 'global',
   state: {},
   effects: {
-    $getInfo() {
+    async $getInfo() {
       console.log('this',this,this.updateState);
-      // const data = await services.getInfo();
-      // this.updateState(data);
+      const data = await services.getInfo();
+      this.updateState(data);
     }
   },
   render() {
