@@ -1,33 +1,11 @@
 import React, { useState, useEffect} from 'react';
-import {Link, Redirect, Route} from 'nuomi';
+import {Link, Redirect, Route, connect} from 'nuomi';
 import { Menu, Icon, Button } from 'antd';
 import routes from '../../../public/routes';
 const { SubMenu } = Menu;
 
-class SideMenu extends React.Component {
-  state = {
-    collapsed: false,
-  };
 
-  toggleCollapsed = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-
-  render() {
-    return (
-      <div style={{ width: 256 }}>
-        <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-          <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
-        </Button>
-        
-      </div>
-    );
-  }
-}
-
-const Layout = () => {
+const Layout = (props) => {
   let theme = localStorage.getItem('theme') || 'mint-green';
   const [show,setShow] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
@@ -36,12 +14,15 @@ const Layout = () => {
       setShow(true);
     });
   },[theme]);
-  return (
+  const { username, loadings } = props;
+  return  loadings.$getInfo === true ? (
+    '正在初始化...'
+  ) :(
     <div style={{display: show?'flex':'none'}} className="g-wh100">
       <div style={{flexBasis: '18.3em', flexShrink:0}} className="menucon">
       <Menu
           defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
+          defaultOpenKeys={[]}
           mode="inline"
           theme="dark"
           inlineCollapsed={collapsed}
@@ -58,16 +39,12 @@ const Layout = () => {
               <span>台账管理</span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="3">
-            <Icon type="inbox" />
-            <span>Option 3</span>
-          </Menu.Item>
           <SubMenu
             key="sub1"
             title={
               <span>
                 <Icon type="mail" />
-                <span>Navigation One</span>
+                <span>电价管理</span>
               </span>
             }
           >
@@ -81,7 +58,7 @@ const Layout = () => {
             title={
               <span>
                 <Icon type="appstore" />
-                <span>Navigation Two</span>
+                <span>权限管理</span>
               </span>
             }
           >
@@ -100,7 +77,7 @@ const Layout = () => {
         </div>
         <div style={{flexGrow: 1}}>
             <div className='box'>
-              <Redirect to="/home/customer" />
+              {/* <Redirect to="/home/customer" /> */}
               {routes.map((route) => (
                 <Route key={route.path} {...route} />
               ))}
@@ -110,5 +87,4 @@ const Layout = () => {
     </div>
   );
 };
-
-export default Layout;
+export default connect(({ username, loadings }) => ({ username, loadings }))(Layout);
