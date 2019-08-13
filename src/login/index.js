@@ -4,7 +4,11 @@ import services from './services';
 import { router } from 'nuomi';
 
 export default {
-  state: {},
+  id: 'login',
+  state: {
+    username: '',
+    password: ''
+  },
   effects:{
     async $login() {
       try {
