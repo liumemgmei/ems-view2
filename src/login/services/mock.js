@@ -1,3 +1,4 @@
+
 export default {
   login({ username, password }) {
     if (username !== 'nuomi' && password !== 'nuomi') {

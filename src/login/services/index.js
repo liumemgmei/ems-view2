@@ -2,6 +2,6 @@
 import mock from './mock';
 import createServices from '../../public/js/createServices';
 export default createServices({
-  login: '/path/login:post',
-  ...mock,
+  login: 'http://ems.wankeauto.com/node/login/captcha:get',
+  // ...mock,
 });
