@@ -19,6 +19,13 @@ export default (requests = {}) => {
       }
       else {
         //服务器请求数据
+        const temp = req.split(':');
+        const url = temp[0];
+        const method = temp[1] || 'get';
+        services[i] =async (data={})=>{
+          let res = axios[method](url,data);
+          return res;
+        }
       }
     }
   }

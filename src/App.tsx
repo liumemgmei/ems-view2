@@ -5,7 +5,7 @@ import {Router, Route, Redirect, NuomiRoute} from 'nuomi';
 import './public/js/config';
 class App extends React.Component {
   render() {
-    return(
+    return (
       <Router>
         <Route path='/index' {...login}/>
         <NuomiRoute pathPrefix={/^\/(home|404)/} {...home}/>
