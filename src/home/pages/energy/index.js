@@ -8,7 +8,5 @@ export default {
   render() {
     return <Layout />;
   },
-  onChange() {
-    console.log('onChange');
-  },
+  onInit() {},
 };

@@ -28,15 +28,21 @@ const Layout = (props) => {
           inlineCollapsed={collapsed}
         >
           <Menu.Item key="1">
+            <Link to='/home/ledger'>
+              <Icon type="desktop" />
+              <span>台账管理</span>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="2">
             <Link to='/home/customer'>
               <Icon type="pie-chart" />
               <span>客户管理</span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="2">
-            <Link to='/home/ledger'>
-              <Icon type="desktop" />
-              <span>台账管理</span>
+          <Menu.Item key="3">
+            <Link to='/home/energy'>
+              <Icon type="pie-chart" />
+              <span>能量管理</span>
             </Link>
           </Menu.Item>
           <SubMenu
@@ -73,14 +79,15 @@ const Layout = (props) => {
       </div>
       <div style={{flexGrow:'1', display:'flex', flexDirection:'column'}}>
         <div style={{flexBasis:'52px' }}>
-            <div className="e-mt20 e-ml20">客户管理</div>
+            {/* <div className="e-mt20 e-ml20">客户管理</div> */}
         </div>
         <div style={{flexGrow: 1}}>
             <div className='box'>
-              {/* <Redirect to="/home/customer" /> */}
-              {routes.map((route) => (
+              {/* {routes.map((route) => (
                 <Route key={route.path} {...route} />
-              ))}
+              ))} */}
+                <Route key='/home/customer' path='/home/customer' async={() => import('../../../pages/customer')} />
+                <Route key='/home/ledger' path='/home/ledger' async={ () => import('../../../pages/ledger')} />
             </div>
         </div>
       </div>

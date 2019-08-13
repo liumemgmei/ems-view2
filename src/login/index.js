@@ -15,7 +15,7 @@ export default {
         const { username, password } = this.getState();
         await services.login({ username, password });
         sessionStorage.setItem('isLogin', 1);
-        router.location('/home');
+        router.location('/home/ledger');
       } catch (e) {
         if (e.status === 300) {
           window.alert(e.message);
