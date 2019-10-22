@@ -1,14 +1,117 @@
-@bodyBgColor:#f0f2f5;
-@boxBgColor:#fff;
-@menu-dark-bg:#001529;
-.theme(){
-  body {
+@bodyBgColor: #f0f2f5;
+@boxBgColor: #fff;
+@menu-dark-bg: #001529;
+@borderColor: #f0f2f5;
+@fontColor: rgba(0, 0, 0, 0.65);
+@selectedBgColor: #bae7ff;
+@boxDarkBgColor: #f6f6f6;
+@fontDark: #333;
+@fontLight: #666;
+@fontLighter: #999;
+@modalHeader: #3a75f8;
+@warning: #faad14;
+@error: #ff0000;
+.theme() {
+  body,
+  .energy-unit-page {
     background-color: @bodyBgColor;
   }
+  .energy-unit-page {
+    .left,
+    .right {
+      background-color: #fff;
+    }
+  }
+
   .menucon {
     background-color: @menu-dark-bg;
   }
-  .box {
+  .box,
+  .crumbsbox,
+  .footer {
     background-color: @boxBgColor;
+  }
+  .nuomibox {
+    background-color: @boxBgColor;
+  }
+  .footer {
+    border-top: 1px solid @borderColor;
+  }
+  .header {
+    border-bottom: 1px solid @bodyBgColor;
+    .header-title {
+      border-left: 5px solid @primary-color;
+      color: @primary-color;
+    }
+  }
+  .edge {
+    width: 1px;
+    background-color: @bodyBgColor;
+  }
+  .wankeitem {
+    color: @fontColor;
+    &.item-selected {
+      background-color: @selectedBgColor;
+      border-left: 5px solid @selectedBgColor;
+      border-right: 5px solid @selectedBgColor;
+    }
+  }
+  .boxshadow {
+    background-color: @boxDarkBgColor;
+    .boxclose,
+    .icodel {
+      color: @error;
+    }
+  }
+  .fontDark {
+    color: @fontDark;
+  }
+  .fontLight {
+    color: @fontLight;
+  }
+
+  // 定制Modal组件样式
+  .ant-modal-header {
+    background-color: @modalHeader;
+    .ant-modal-title {
+      color: #fff;
+    }
+  }
+  .ant-modal-footer {
+    text-align: center;
+
+    .footer-cancel {
+      background: #dedede;
+      margin-right: 15px;
+      &:hover {
+        border: 1px solid transparent;
+      }
+    }
+  }
+  .ant-modal-close-x {
+    svg {
+      color: #fff;
+    }
+  }
+  .multiple {
+    .has-error .ant-select-selection {
+      border-color: #d9d9d9;
+    }
+    .has-error .ant-select-open .ant-select-selection,
+    .has-error .ant-select-focused .ant-select-selection {
+      box-shadow: none;
+    }
+  }
+  .warning {
+    color: @warning;
+  }
+  .link {
+    color: @primary-color;
+  }
+  .fontLighter {
+    color: @fontLighter;
+  }
+  .m-box {
+    border-color: @bodyBgColor;
   }
 }

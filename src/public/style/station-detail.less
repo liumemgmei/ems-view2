@@ -1,0 +1,196 @@
+.station-detail-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  // background-color: #f0f2f5;
+}
+
+.station-input {
+  width: 325px;
+}
+
+//选择经纬度
+.station-map-select-page {
+  position: relative;
+  height: 100%;
+
+  .getting-position {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .current-position-info {
+    background: #fff;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    width: 218px;
+    padding: 17px 20px;
+
+    .header {
+      color: #000000;
+    }
+    .position-info {
+      margin: 10px 0;
+      border: 1px solid #eee;
+      border-radius: 3px;
+      padding: 5px 5px;
+    }
+    .confirm {
+      button {
+        width: 85px;
+      }
+    }
+  }
+
+  .citylist_popup_main .city_content_top {
+    height: 40px;
+    padding-top: 10px;
+  }
+}
+.detail-item {
+  display: inline-flex;
+  word-break: break-word;
+  width: 270px;
+  margin-right: 15px;
+  min-height: 67px;
+
+  .item-label {
+    width: 80px;
+    color: #333;
+  }
+
+  .item-txt {
+    color: #666666;
+    flex: 1;
+  }
+}
+.use-electricity,
+.generate-electricity {
+  box-shadow: 0px 4px 5px 1px #dedede;
+  display: flex;
+  align-items: center;
+  // padding: 10px;
+  // margin-top: 10px;
+  padding-right: 10px;
+  flex-basis: 0;
+  flex: 1;
+  height: 160px;
+  .logo {
+    width: 140px;
+    height: 140px;
+    margin-left: 10px;
+    background-color: #f0f2f5;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .use-electricity-txt {
+      color: #333333;
+      margin-top: 15px;
+    }
+  }
+}
+.use-electricity {
+  .icon {
+    width: 43px;
+    height: 47px;
+    margin-top: 33px;
+  }
+}
+.generate-electricity {
+  .icon {
+    width: 45px;
+    height: 31px;
+    margin-top: 42px;
+  }
+}
+.rules {
+  text-align: center;
+  // padding: 20px 25px;
+  .ant-carousel {
+    text-align: center;
+    height: 160px;
+    background: #fff;
+    overflow: hidden;
+    .slick-dots li.slick-active button {
+      background: #3588fe;
+      border-radius: 100px;
+      width: 9px;
+      height: 9px;
+    }
+    .slick-dots li button {
+      background: #fff;
+      border: 1px solid #3588fe;
+      border-radius: 100px;
+      width: 9px;
+      height: 9px;
+    }
+    .slick-slider {
+      height: 100%;
+      .slick-list {
+        height: 100%;
+      }
+    }
+  }
+}
+.rule {
+  text-align: left;
+  &.empty {
+    color: #bbb;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    text-align: center;
+  }
+  .period-a {
+    color: #666666;
+  }
+}
+
+.rules_fa {
+  text-align: center;
+  padding: 0 25px;
+  width: 80%;
+  // height: 200px;
+  display: flex;
+  flex-direction: row;
+  .rule {
+    width: 50%;
+    color: #3588fe;
+    text-align: center;
+    position: relative;
+    // section {
+    //   position: relative;
+    //   top: 50%;
+    //   transform: translate(0, -50%);
+    // }
+  }
+}
+.first_div {
+  .empty {
+    color: #bbb;
+  }
+  padding: 20px 25px;
+  width: 80%;
+  text-align: center;
+}
+
+.slick-track {
+  height: 100%;
+}
+
+.slick-slide > div {
+  // position: relative;
+  // top:50%;
+  // transform: translateY(-50%);
+  margin-top: 20px;
+}

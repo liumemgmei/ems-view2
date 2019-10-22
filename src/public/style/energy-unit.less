@@ -1,0 +1,88 @@
+.left {
+  width: 236px;
+  border-right: 1px solid #dedede;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tree-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+.right {
+  flex: 1;
+  height: 100%;
+  margin-left: 5px;
+  > .ant-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .from-to {
+    margin: 0 5px;
+  }
+  .number-with-suffix {
+    display: inline-block;
+    width: 100%;
+  }
+  .save {
+    padding: 5px 10px;
+  }
+  .footer {
+    padding: 5px 10px;
+  }
+
+  .item-label {
+    color: #999;
+    width: 120px;
+  }
+  .item-txt {
+    color: #000;
+    overflow: hidden;
+  }
+  .look-remark-container {
+    width: 100%;
+    .detail-item {
+      display: flex;
+      width: 100%;
+    }
+  }
+}
+
+.txt-btn {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  outline: none;
+  &.add {
+    color: #1890ff;
+  }
+  &.delete {
+    color: #333333;
+  }
+}
+.energy-unit-input {
+  width: 325px;
+}
+
+.number-range-1,
+.number-range-2 {
+  display: inline-block;
+  width: 90px;
+}
+
+.energy-unit-dialog {
+  .add-object {
+    display: flex;
+    flex-wrap: wrap;
+
+    .input-unit {
+      width: 280px;
+    }
+  }
+}

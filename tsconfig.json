@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "resolveJsonModule": true,
+    "types": ["node"],
     "allowJs": true,
     "strictNullChecks": false,
     "moduleResolution": "node",
@@ -9,14 +11,13 @@
     "target": "es6",
     "strict": false,
     "noEmit": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "noUnusedParameters": false,
+    "noUnusedLocals": false,
     "noImplicitAny": false,
-    "module": "esnext"
+    "lib": ["dom", "es2017"]
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"]
 }
