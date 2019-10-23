@@ -116,23 +116,25 @@ const Data: FC<stateProps & Dispatch & FormProps> = props => {
         </Button>
       </div>
       <div className="e-ml10">
-        <Button
-          className="e-mt10"
-          onClick={() => {
-            let str = document.querySelector("#datamodel").innerHTML;
-            const el = document.createElement("textarea");
-            el.value = str;
-            el.setAttribute("readonly", "");
-            el.style.position = "absolute";
-            el.style.left = "-9999px";
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand("copy");
-            document.body.removeChild(el);
-          }}
-        >
-          copy
-        </Button>
+        {dataModel && dataModel.length !== 0 && (
+          <Button
+            className="e-mt10"
+            onClick={() => {
+              let str = document.querySelector("#datamodel").innerHTML;
+              const el = document.createElement("textarea");
+              el.value = str;
+              el.setAttribute("readonly", "");
+              el.style.position = "absolute";
+              el.style.left = "-9999px";
+              document.body.appendChild(el);
+              el.select();
+              document.execCommand("copy");
+              document.body.removeChild(el);
+            }}
+          >
+            copy
+          </Button>
+        )}
         {type === generateType.model && <Model />}
         {type === generateType.function && <ServiceCode />}
         {type === generateType.node && <NodeCode />}

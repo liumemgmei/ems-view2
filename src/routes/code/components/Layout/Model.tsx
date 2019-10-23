@@ -17,7 +17,7 @@ const Model: FC<stateProps> = props => {
           <React.Fragment key={key}>
             {`
 {
-  functionname: 'getLogin',`}
+  functionname: '${per.functionname}',`}
             {isString &&
               `
   req:'${req}',`}
@@ -41,7 +41,7 @@ const Model: FC<stateProps> = props => {
             {`
   res: '${per.apiUse}',
   type: '${per.method}',
-  url: '/login'
+  url: '${per.url}'
 },`}
           </React.Fragment>
         );
