@@ -39,8 +39,8 @@ const Model: FC<stateProps> = props => {
               `
     ],`}
             {`
-  res: 'defaultEnums',
-  type: ${per.method},
+  res: '${per.apiUse}',
+  type: '${per.method}',
   url: '/login'
 },`}
           </React.Fragment>
