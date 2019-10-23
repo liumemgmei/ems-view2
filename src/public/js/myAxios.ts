@@ -27,7 +27,7 @@ interface axiosProps {
   data?: any;
 }
 
-export default async (params: axiosProps) => {
+async function myAxios<T>(params: axiosProps): Promise<T> {
   const { method, data } = params;
   let { url } = params;
   //get和post 不一样的接口请求形式
@@ -64,7 +64,7 @@ export default async (params: axiosProps) => {
       return true;
     }
   });
-  const response = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     if (res.status >= 200 && res.status < 300) {
       if ((res.data.message || res.data.error) && !res.data.errorMsg) {
         res.data.errorMsg = res.data.message || res.data.error;
@@ -76,7 +76,7 @@ export default async (params: axiosProps) => {
       }
       // 成功
       if (res.data.errorCode === 0) {
-        resolve(res.data.results);
+        resolve(res.data);
       }
       // 中间层请求不到后台,服务器异常
       else if (res.data.errorCode === 51) {
@@ -109,5 +109,5 @@ export default async (params: axiosProps) => {
       reject(res.data);
     }
   });
-  return response;
-};
+}
+export default myAxios;

@@ -12,26 +12,19 @@ import "moment/locale/zh-cn";
 import axios from "axios";
 moment.locale("zh-cn");
 
+import login from "./routes/login";
+import home from "./routes/home";
+import createService from "./public/js/createService";
 type gettest = { type: string } & { id: string } & { data: string };
-interface Rdata {
-  list: any;
-}
 
 function test(params: gettest) {
-  return getdata<gettest, Rdata>("", params);
-}
-
-function getdata<T, T1>(
-  url,
-  params: T
-): Promise<{ errorCode: number; data: T1 }> {
-  return axios.post(url, { data: "2" });
+  return createService<gettest, defaultEnums>("", params);
 }
 
 class App extends React.Component {
   async componentDidMount() {
     const res = await test({ id: "222", type: "1", data: "2" });
-    console.log(res.data.list);
+    console.log(res.results);
     // console.log(res.errorCode)
     //  axios.post('login/test/111?type=1',{data:'2'}).then((res)=>{
     //   console.log('res',res);
@@ -42,7 +35,11 @@ class App extends React.Component {
       <AntdConfigProvider
         locale={utils.getInitLanguage() === "en" ? enUS : zhCN}
       >
-        <div>liumm</div>
+        <Router>
+          <Route path="/login" {...login} />
+          <NuomiRoute pathPrefix={/^\/(home|404)/} {...home} />
+          <Redirect to="login" />
+        </Router>
       </AntdConfigProvider>
     );
   }
