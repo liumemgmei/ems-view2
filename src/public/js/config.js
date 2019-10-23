@@ -156,7 +156,8 @@ let languageMessages = {};
 const ENV = process.env.NODE_ENV;
 
 const promise = new Promise((resolve, reject) => {
-  const theme = localStorage.getItem("theme") || "mint-green";
+  // const theme = localStorage.getItem("theme") || "mint-green";
+  const theme = "mint-green";
   if (ENV !== "production" && ENV !== "test") {
     import(/*webpackChunkName: "version" */ "./version");
   }

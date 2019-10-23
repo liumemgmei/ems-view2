@@ -13,6 +13,7 @@ import axios from "axios";
 moment.locale("zh-cn");
 
 import login from "./routes/login";
+import code from "./routes/code";
 import home from "./routes/home";
 import createService from "./public/js/createService";
 type gettest = { type: string } & { id: string } & { data: string };
@@ -23,8 +24,8 @@ function test(params: gettest) {
 
 class App extends React.Component {
   async componentDidMount() {
-    const res = await test({ id: "222", type: "1", data: "2" });
-    console.log(res.results);
+    // const res = await test({ id: "222", type: "1", data: "2" });
+    // console.log(res.results);
     // console.log(res.errorCode)
     //  axios.post('login/test/111?type=1',{data:'2'}).then((res)=>{
     //   console.log('res',res);
@@ -37,6 +38,7 @@ class App extends React.Component {
       >
         <Router>
           <Route path="/login" {...login} />
+          <Route path="/code" {...code} />
           <NuomiRoute pathPrefix={/^\/(home|404)/} {...home} />
           <Redirect to="login" />
         </Router>

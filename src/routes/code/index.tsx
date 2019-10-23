@@ -4,7 +4,18 @@ import effects from "./effects";
 import services from "./services";
 
 export default {
-  state: {},
+  state: {
+    data: [
+      {
+        id: 0,
+        req: ""
+      }
+    ],
+    dataModel: [],
+    type: "",
+    str: "11",
+    forms: {}
+  },
   effects,
   render() {
     return <Layout />;

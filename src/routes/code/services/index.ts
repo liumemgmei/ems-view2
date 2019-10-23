@@ -10,8 +10,11 @@ const services = {
   postLogin() {
     return createService<undefined, number>("/login|post");
   },
-  patchLogin(params: defaultEnums) {
-    return createService<defaultEnums, number>("/login|patch", params);
+  login(params: { username: string; password: string }) {
+    return createService<{ username: string; password: string }, any>(
+      "/login|post",
+      params
+    );
   }
 };
 export default services;
