@@ -87,7 +87,7 @@ const Api: FC<stateProps & Dispatch & FormProps & ownProps> = props => {
 
         <FormItemUnit>
           <Form.Item label="请求描述" colon>
-            {getFieldDecorator("apiDescription")(<Input />)}
+            {getFieldDecorator("apiDesc")(<Input />)}
           </Form.Item>
         </FormItemUnit>
         <FormItemUnit>
@@ -107,7 +107,27 @@ const Api: FC<stateProps & Dispatch & FormProps & ownProps> = props => {
             {getFieldDecorator("functionname")(<Input />)}
           </Form.Item>
         </FormItemUnit>
-        <Form.Item className="e-mr35" label="请求参数" colon>
+        <Form.Item
+          className="e-mr35"
+          label={
+            <span>
+              请求参数{" "}
+              <a
+                onClick={() => {
+                  dispatch({
+                    type: "addPageSize",
+                    payload: {
+                      form
+                    }
+                  });
+                }}
+              >
+                分页
+              </a>
+            </span>
+          }
+          colon={false}
+        >
           {getFieldDecorator("req", {
             initialValue: per.req
           })(<Param />)}
@@ -125,6 +145,9 @@ const Api: FC<stateProps & Dispatch & FormProps & ownProps> = props => {
 
         <Form.Item label="返回值" colon>
           {getFieldDecorator("apiSuccessExample")(<TextArea rows={8} />)}
+        </Form.Item>
+        <Form.Item label="详细设计描述" colon>
+          {getFieldDecorator("apiDescription")(<TextArea rows={8} />)}
         </Form.Item>
       </Form>
     </>

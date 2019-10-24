@@ -50,6 +50,7 @@ class Param extends React.Component<any> {
       return (
         <>
           <Input
+            value={value}
             onChange={e => {
               onChange(e.target.value);
             }}
@@ -73,6 +74,7 @@ class Param extends React.Component<any> {
               </Col>
               <Col span={5}>
                 <Input
+                  value={item.field}
                   onChange={e => {
                     edit({ val: e.target.value, type: "field", index: key });
                   }}
@@ -83,6 +85,7 @@ class Param extends React.Component<any> {
               </Col>
               <Col span={4}>
                 <AutoComplete
+                  value={item.type}
                   dataSource={paramTypes}
                   onChange={val => {
                     edit({ val, type: "type", index: key });
@@ -94,6 +97,7 @@ class Param extends React.Component<any> {
               </Col>
               <Col span={5}>
                 <Input
+                  value={item.desc}
                   onChange={e => {
                     edit({ val: e.target.value, type: "desc", index: key });
                   }}

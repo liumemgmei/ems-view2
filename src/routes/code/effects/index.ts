@@ -36,5 +36,24 @@ export default {
     this.updateState({
       data: newData
     });
+  },
+  addPageSize({ form }) {
+    const req = form.getFieldValue("req");
+    if (utils.typeOf(req, "Array")) {
+      form.setFieldsValue({
+        req: [
+          ...req,
+          { field: "page", type: "number", desc: "页数" },
+          { field: "size", type: "number", desc: "每页条数" }
+        ]
+      });
+    } else {
+      form.setFieldsValue({
+        req: [
+          { id: "page", field: "page", type: "number", desc: "页数" },
+          { id: "size", field: "size", type: "number", desc: "每页条数" }
+        ]
+      });
+    }
   }
 };

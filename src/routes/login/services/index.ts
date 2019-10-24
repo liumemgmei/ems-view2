@@ -1,8 +1,12 @@
 import createService from "../../../public/js/createService";
 
+interface loginprops {
+  username: string;
+  password: string;
+}
 const services = {
-  getLogin(params: { username: string }) {
-    return createService<{ username: string }, defaultEnums>(
+  getLogin(params: loginprops) {
+    return createService<{ username: string; password: string }, defaultEnums>(
       "/login|get",
       params
     );

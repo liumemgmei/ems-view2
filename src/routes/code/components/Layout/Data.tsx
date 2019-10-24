@@ -28,6 +28,7 @@ export interface Iapi {
   url: string;
   apiSuccessExample: string;
   apiUse: string;
+  apiDesc: string;
 }
 interface stateProps {
   type: generateType;
@@ -131,6 +132,7 @@ const Data: FC<stateProps & Dispatch & FormProps> = props => {
               document.execCommand("copy");
               document.body.removeChild(el);
             }}
+            type="primary"
           >
             copy
           </Button>

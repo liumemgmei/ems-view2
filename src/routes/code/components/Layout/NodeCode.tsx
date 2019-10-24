@@ -31,10 +31,13 @@ const NodeCode: FC<stateProps> = props => {
           <React.Fragment key={key}>
             {`
 /**
- * @api {${per.method}} ${per.url} ${per.apiDescription}
+ * @api {${per.method}} ${per.url} ${per.apiDesc}
  * @apiVersion 0.0.0
- * @apiGroup ${per.apiGroup}
- * @apiDescription ${per.apiDescription}
+ * @apiDescription ${per.apiDesc}`}
+            {per.apiDescription &&
+              `
+ * @apiDescription ${per.apiDescription}`}
+            {`
  * @apiHeader {String} access-token 用户Token`}
             {reqtpl}
             {`
